@@ -3,6 +3,8 @@
 # * University/ITI1100[[:space:]]Digital[[:space:]]Systems[[:space:]]I/ITI1100[[:space:]]Assignment[[:space:]]1/main.tex=auto
 # Turns off linguist detection for all .tex files
 # *.tex linguist-detectable=false
+
+# Linguist ignores/does not count files in AP Calculus BC and University, and therefore does not count it in profile's "most used languages".
 AP[[:space:]]Calculus[[:space:]]BC/** linguist-vendored
 University/** linguist-vendored
 
