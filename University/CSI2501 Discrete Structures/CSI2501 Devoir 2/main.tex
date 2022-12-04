@@ -1,0 +1,128 @@
+
+%% ==================================================================================================
+%%
+\documentclass[12pt]{book}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage{xlop} %% for multiplication https://tex.stackexchange.com/questions/11702/how-to-present-a-vertical-multiplication-addition
+\usepackage{listings} %% to format generic computer code
+\usepackage{lmodern} % for bold teletype font
+\usepackage{minted} % colour Java code
+
+\usepackage{tasks}
+%\NewTasks[style=enumerate,counter-format=tsk[A].,label-width=3ex]{choice}[\item](4)
+
+%% =======   set page margins    =======
+\setlength{\textheight}{10in}
+\setlength{\textwidth}{7.4in}
+\setlength{\topmargin}{-0.75in}
+\setlength{\oddsidemargin}{-0.5in}
+\setlength{\evensidemargin}{-0.5in}
+\setlength{\parskip}{0.15in}
+\setlength{\parindent}{0in}
+
+%%  for European long division
+% https://tex.stackexchange.com/questions/432435/how-to-set-up-european-french-style-long-division-in-tex
+\newcommand\frdiv[5]{%
+    \[
+    \renewcommand\arraystretch{1.5}
+    \begin{array}{l| l}
+    #1 & #2 \\
+    \cline{2-2}
+    #3 & #4 \\
+    \cline{1-1}
+    #5 & \\
+    \end{array}
+    \]
+}
+
+%%  for European long division
+
+
+%% ==================================================================================================
+
+\begin{document}
+
+\newcommand{\reporttitle}{Devoir 2}
+\newcommand{\reportauthorOne}{Kien Do}
+\newcommand{\cidOne}{300163370}
+\input{titlePage/titlepage.txt}
+
+
+
+%% ==================================================================================================
+
+%%%%%%%%%%%% PROBLEMS START HERE
+
+\begin{enumerate}
+    \item Vrai
+    
+    Preuve par induction.
+    
+    Supposons que $\{x \in \mathbb{R} \,|\, x \geq -1\}$ et $\{n \in \mathbb{Z} \,|\, n \geq 2\}$. On veut prouver que 
+    $$P(n) = \forall x \, \forall n \, ((1+x)^n \geq 1+nx)$$
+    
+    \textbf{Cas de base:}\\
+    Soit $n = 2$. Montrons que $P(2)$ est vrai. On a que,
+    $$(1+x)^n = (1+x)^2 = 1 + 2x + x^2$$
+    Et,
+    $$1 + nx = 1 + (2)x = 1 + 2x$$
+    Donc, $P(n)$ est vrai pour $n = 2$.\\
+    
+    \textbf{Hypothèse d'induction}
+    
+    Supposons que $P(k) = \forall x \, \forall k \, ((1+x)^k \geq 1+kx)$ où $\{x \in \mathbb{R} \,|\, x \geq -1\}$ et $\{k \in \mathbb{Z} \,|\, k \geq 2\}$.\\
+    
+    \textbf{Étape d'induction}
+    
+    Il faut montrer que l'étape d'induction est vrai pour $P(k+1) = \forall x \, \forall k \, ((1+x)^{k+1} \geq 1+(k+1)x)$. Donc,
+    \begin{align*}
+        (1+x)^{k+1} &= (1+x)^{k} \times (1+x) \\
+        (1+x)^{k+1} &\geq (1+kx) \times (1+x) \quad \xleftarrow[\text{Remarque que $1+x \geq 0$ car $x \geq -1$}]{\text{Par hypothèse d'induction}}\\
+        (1+x)^{k+1} &\geq 1 + x + kx + kx^2\\
+        (1+x)^{k+1} &\geq 1 + x(1+k) + kx^2
+    \end{align*}
+    Remarque que $x \geq -1$, donc que $x^2 \geq 0$. Puisque $x^2 \geq 0$, on a que $kx^2 \geq 0$. Par conséquent,
+    $$1 + x(1+k) + kx^2 \geq 1 + x(1+k)$$
+    Vu que, $$(1+x)^{k+1} \geq 1 + x(1+k) + kx^2$$ 
+    Et $$1 + x(1+k) + kx^2 \geq 1 + x(1+k)$$
+    On a que $$(1+x)^{k+1} \geq 1 + x(1+k)$$
+    
+    Puisque $P(k+1)$ est vrai pour tous $k \geq 2$, $x \geq -1$, l'énoncé est vrai.
+    
+    \newpage
+    \item Faux
+    
+    Preuve par contradiction.
+    
+    Montrons que $$\neg \, \text{(l'énoncé)} \equiv \exists x \, \exists n \, \left((1+x)^n < 1 + nx\right)$$ est vrai dans le domaine $\{x \in \mathbb{R}\}$ et $\{n \in \mathbb{Z} \,|\, n \geq 2\}$.
+    
+    Prenons $n = 3$, $x = -5$. On voit que,
+    
+    Côté gauche:
+    $$(1+x)^n = (1+(-5))^3 = (-4)^3 = -64$$
+    
+    Côté droit:
+    $$1+nx = 1+(-5)(3) = 1 - 15 = -14$$
+    Donc, $$(1+x)^n < 1 + nx$$ est faux lorsque $n = 3$, $x = -5$.
+    
+    Puisque la contradiction de l'énoncé est vrai, on peut conclure que l'énoncé est faux.
+    
+    
+    
+    
+
+
+\end{enumerate}
+
+
+
+
+
+
+\end{document} 

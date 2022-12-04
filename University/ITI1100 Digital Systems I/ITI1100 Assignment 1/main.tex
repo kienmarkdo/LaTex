@@ -1,0 +1,370 @@
+
+%% ==================================================================================================
+%%
+\documentclass[12pt]{book}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage{xlop} %% for multiplication https://tex.stackexchange.com/questions/11702/how-to-present-a-vertical-multiplication-addition
+
+\usepackage{tasks}
+%\NewTasks[style=enumerate,counter-format=tsk[A].,label-width=3ex]{choice}[\item](4)
+
+%% =======   set page margins    =======
+\setlength{\textheight}{10in}
+\setlength{\textwidth}{7.4in}
+\setlength{\topmargin}{-0.75in}
+\setlength{\oddsidemargin}{-0.5in}
+\setlength{\evensidemargin}{-0.5in}
+\setlength{\parskip}{0.15in}
+\setlength{\parindent}{0in}
+
+%%  for European long division
+% https://tex.stackexchange.com/questions/432435/how-to-set-up-european-french-style-long-division-in-tex
+\newcommand\frdiv[5]{%
+    \[
+    \renewcommand\arraystretch{1.5}
+    \begin{array}{l| l}
+    #1 & #2 \\
+    \cline{2-2}
+    #3 & #4 \\
+    \cline{1-1}
+    #5 & \\
+    \end{array}
+    \]
+}
+
+%%  for European long division
+
+
+%% ==================================================================================================
+
+\begin{document}
+
+%\title{ITI1100 Digital Systems I}
+%\author{Kien Do 300163370}
+%\date{Assignment \#1}
+\newcommand{\reporttitle}{Assignment 1}
+\newcommand{\reportauthorOne}{Kien Do}
+\newcommand{\cidOne}{300163370}
+\input{titlepage.txt}
+
+
+
+%% ==================================================================================================
+
+%%%%%%%%%%%% PROBLEMS START HERE
+
+\section*{Theory Part}
+
+\begin{enumerate}
+
+%% THEORY PART
+\item Why digital systems replaced analog systems?\\
+
+Digital systems transmit signals discretely using bits in binary, 0s and 1s, whereas analog systems transmit signals continuously using electronic pulses. Digital systems are computationally less expensive and is faster and more efficient than analog systems. Digital systems is also less affected by noise can also be used on more types of hardware than analog systems. Overall, digital systems are more reliable than analog systems and due to the technological advancements we have today, digital systems are just as equally, if not, more accurate than analog systems.\\
+
+
+\item Why is it important to use and understand binary?\\
+
+Computers communicate in binary bits (0s and 1s) where 0 means there is no electricity going through the transistor and 1 means that there is electricity going through the transistor. Since computers do not understand decimal numbers like humans do, we have to learn binary in order to do calculations as well as improve readability.\\
+
+\item Why is it important to use complement in general?\\
+
+Without using the complement, subtraction would be an expensive process for computers. However, since computers can do addition very quickly, instead of teaching a computer to subtract, we teach it to add the complement in order to simplify and reduce the cost of logical manipulations.\\
+
+\newpage
+
+\end{enumerate}
+
+%% EXERCISES PART
+\section*{Exercises Part}
+
+\begin{enumerate}
+    \item Convert the following numbers with the indicated bases to decimal:
+    \begin{enumerate}
+        \item $(4301)_5$
+        \begin{align*}
+            (4301)_5 &= (4 \times 5^3 + 3 \times 5^2 + 1 \times 5^1 + 0 \times 5^0)_{10} \\
+            (4301)_5 &= (580)_{10}
+        \end{align*}
+        \item $(198)_{12}$
+        \begin{align*}
+            (198)_{12} &= (8 \times 12^0 + 9 \times 12^1 + 1 \times 12^2)_{10} \\
+            (198)_{12} &= (260)_{10}
+        \end{align*}
+        \item $(445)_{8}$
+        \begin{align*}
+            (445)_{8} &= (5 \times 8^0 + 4 \times 8^1 + 4 \times 8^2)_{10} \\
+            (445)_{8} &= (293)_{10}
+        \end{align*}
+        \item $(345)_{6}$
+        \begin{align*}
+            (345)_{6} &= (5 \times 6^0 + 4 \times 6^1 + 3 \times 6^2)_{10} \\
+            (345)_{6} &= (137)_{10}
+        \end{align*}
+    \end{enumerate}
+    
+    \item Convert the hexadecimal number 64CD to binary, and then convert it from binary to octal.
+    \begin{align*}
+        (64CD)_{16} &= (0110_0100_1100_1101)_2 \\
+        &= (110_010_011_001_101)_2 \\
+        &= (62315)_8
+    \end{align*}
+    
+    \item Express the following numbers in decimal:
+    \begin{enumerate}
+        \item $(26.24)_{8}$
+        $$2\times8^1+6\times8^0+2\times8^{-1}+4\times8^{-2} = 22.3125$$
+        \item $(DABA.B)_{16}$
+        $$13\times16^3+10\times16^2+11\times16^1+10\times16^0+11\times16^{-1} = 55994.6875$$
+        \item $(1011.1001)_{2}$
+        $$8+2+1+1/2+1/16 = 11.5625$$
+    \end{enumerate}
+    \newpage
+    \item Do the following conversion problems:
+    \begin{enumerate}
+        \item Convert decimal 27.315 to binary.
+        \begin{align*}
+            27/2 &= 13 \quad r1\\
+            13/2 &= 6 \quad r1\\
+            6/2 &= 3 \quad r0\\
+            3/2 &= 1 \quad r1\\
+            1/2 &= 0 \quad r1\\
+            &= 11011\\\\
+            0.315\times2 &= 0.63\\
+            0.63\times2 &= 1.26\\
+            0.26\times2 &= 0.52\\
+            0.52\times2 &= 1.04\\
+            &= 0.0101
+        \end{align*}
+        $$(27.315)_{10} \approx (11011.0101)_2$$
+        
+        \item Calculate the binary equivalent of 2/3 out to eight places. Then convert from binary to decimal. How close is the result to 2/3?
+        \begin{align*}
+            0.666666\times2 &= 1.333333\\
+            0.333333\times2 &= 0.666666\\
+            0.666666\times2 &= 1.333333\\
+            0.333333\times2 &= 0.666666\\
+            0.666666\times2 &= 1.333333\\
+            0.333333\times2 &= 0.666666\\
+            0.666666\times2 &= 1.333333\\
+            0.333333\times2 &= 0.666666
+        \end{align*}
+        $$(0.10101010)_2 = 2^{-1}+2^{-3}+2^{-5}+2^{-7} = (0.6640625)_{10}$$
+        The result is very close to 2/3 but not the exact same.\\
+        \item Convert the binary result in (b) into hexadecimal. Then convert the result to decimal. is the answer the same?
+        \begin{align*}
+            (0.10101010)_2 &= (0.1010_1010)_{16}\\
+            &= (0.AA)_{16}\\
+            &= (10\times16^{-1}+10\times16^{-2})_{10}\\
+            &= (0.6640)_{10}
+        \end{align*}
+        Yes, the answer is the same as b).
+    \end{enumerate}
+    
+    \newpage
+    
+    \item Obtain the 1's and 2's complements of the following binary numbers:
+    \begin{enumerate}
+        \item 00000000\\
+        1's complement = $1111\_1111$\\
+        2's complement = $0000\_0000$\\
+        \item 11011010\\
+        1's complement = $0010\_0101$\\
+        2's complement = $0010\_0110$\\
+        \item 10100101\\
+        1's complement = $0101\_1010$\\
+        2's complement = $0101\_1011$\\
+        \item 11111111\\
+        1's complement = $0000\_0000$\\
+        2's complement = $0000\_0001$\\
+    \end{enumerate}
+    
+    \item \begin{enumerate}
+        \item Find the 16's complement of C3AF
+        \begin{align*}
+            &= FFFF-C3AF + 1\\
+            &= 3C50 + 1\\
+            &= 3C51
+        \end{align*}
+        
+        \item Convert C3AF to binary
+        $$(C3AF)_{16} = (1100\_0011\_1010\_1111)_{2}$$
+        
+        \item Find the 2's complement of the result in (b)
+        \begin{align*}
+            \text{result from (b)} &= (1100\_0011\_1010\_1111)_{2}\\
+            \text{2's complement} &= (0011\_1100\_0101\_0001)_{2}
+        \end{align*}
+        
+        \item Convert the answer in (c) to hexadecimal and compare with the answer in (a)
+        \begin{align*}
+            &= (0011\_1100\_0101\_0001)_{2}\\
+            &= 3C51
+        \end{align*}
+        
+        \item Encode each of the following numbers $(39)_{10}$ and $(10001)_2$ in BCD.
+        \begin{align*}
+            (39)_{10} &= (0011\_1001)_{BCD} \\\\
+            (10001)_{2} &= (17)_{10}\\
+            (10001)_{2} &= (0001\_0111)_{BCD} \\
+        \end{align*}
+    \end{enumerate}
+    
+    \newpage
+    
+    \item Calculate $10000\times1001$, and $10000\div1001$.\\\\
+    
+    \opmul{10000}{1001} \\\\
+    
+    
+    \begin{falign}
+        &\text{ }\text{ }\text{ }1.11\\
+        1001 &\overline{\big)10000}\\ % divisor and dividend
+        &\underline{\text{ }01001}\\
+        &\text{ }\text{ }\text{ }01110\\
+        &\text{ }\text{ }\underline{\text{ }01001}\\
+        &\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }01010\\
+        &\text{ }\text{ }\text{ }\text{ }\underline{\text{ }\,\,01001}\\
+        &\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }\text{ }0001\\
+    \end{falign}
+    
+    \item Perform substraction on the given \textbf{unsigned numbers} using the 10's complement of the subtrahend. Where the result should be negative, find its 10's complement and affix a minus sign. Verify your answers.
+    \begin{enumerate}
+        \item 6,473 - 5,297\\
+        
+        Find 10's complement of 5,297\\
+        $$10000-5297=4703$$
+        Perform the substraction by adding the complement\\
+        $$6473+4703=11176$$\\
+        Remove the left-most digit from the result.
+        $$1176$$
+        Verify answer by performing regular substraction
+        $$6473-5297=1176$$
+        
+        \newpage
+        
+        \item 125 - 1,800\\
+        
+        Find 10's complement of 1800\\
+        $$10000-1800=8200$$
+        Perform the substraction by adding the complement\\
+        $$125+8200=8325$$\\
+        Since there is no carry (because the subtrahend is larger than the minuend), determine the 10's complement of 8325.
+        $$10000-8325=1675$$
+        Rewrite the 10's complement as a negative number.
+        $$-1675$$
+        
+        Verify answer by performing regular subtraction.
+        $$125 - 1800 = -1675$$
+        
+    \end{enumerate}
+    
+    \item Perform substraction on the given \textbf{unsigned binary numbers} using the 2's complement of the subtrahend. Where the result should be negative, find its 2's complement and affix a minus sign.
+    
+    \begin{enumerate}
+        \item 10011-10010\\
+        
+        Find the 2's complement of the subtrahend.
+        $$10010 \xrightarrow[]{\text{2's complement}} 01110$$
+        Perform the subtraction by adding the complement.
+        $$10011 + 01110 = 100001$$
+        Remove the left-most digit.
+        $$00001 = 1$$
+        $$\text{Final answer} = 1$$
+        
+        \item 100010 - 100110\\
+        
+        Find the 2's complement of the subtrahend.
+        $$100110 \xrightarrow[]{\text{2's complement}} 011010$$
+        Perform the subtraction by adding the complement.
+        $$100010 + 011010 = 111100$$
+        Since there is no carry and the subtrahend is larger than the minuend, the result must be negative, therefore, we need to find the 2's complement of the result.
+        $$111100 \xrightarrow[]{\text{2's complement}} 000100$$
+        Affix the a minus sign.\\
+        $$\text{Final answer} = -100$$
+    \end{enumerate}
+    
+    \item Convert decimal $+49$ and $+29$ to binary, using the \textbf{signed 2's complement} representation and enough digits to accommodate the numbers. Then perform the binary equivalent of $(+29)+(-49)$, $(-29)+(+49)$, and $(-29)+(-49)$. Convert the answers back to decimal and verify that they are correct.\\
+    
+    Convert +49 and +29 to binary,
+    \begin{align*}
+        49/2 &= 24 \quad r1\\
+        24/2 &= 12 \quad r0\\
+        12/2 &= 6 \quad r0\\
+        6/2 &= 3 \quad r0\\
+        3/2 &= 1 \quad r1\\
+        1/2 &= 0 \quad r1\\
+        +49 &= 0\_110001 \qquad \xleftarrow[\text{leading 0 represents the sign}]{\text{+49 in binary}}\\\\
+        29/2 &= 14 \quad r1\\
+        14/2 &= 7 \quad r0\\
+        7/2 &= 3 \quad r1\\
+        3/2 &= 1 \quad r1\\
+        1/2 &= 0 \quad r1\\
+        +29 &= 0\_11101 \qquad \xleftarrow[\text{leading 0 represents the sign}]{\text{+29 in binary}}\\\\
+        +49 &= 0\_110001\\
+        +29 &= 0\_011101 \xleftarrow[]{\text{add extra 0 digit to accommodate number}}\\
+    \end{align*}
+    Now, we will find the binary values of $(-49)$ and $(-29)$. To do so, we simply find the 2's complement of the binary values of $(+49)$ and $(+29)$.
+    \begin{align*}
+        +49 &= 0\_110001 \xrightarrow[]{\text{2's complement}} 1\_001111\\
+        -49 &= 1\_001111\\
+        +29 &= 0\_011101 \xrightarrow[]{\text{2's complement}} 1\_100011\\
+        -29 &= 1\_100011
+    \end{align*}
+    \begin{enumerate}
+        \item $(+29)+(-49)$\\
+        
+        We know that $(+29)+(-49) = 0\_11101 + 1\_001111$.\\\\
+        \begin{tabular}{c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c@{\,}c}
+            & 0 & \_ & 0 & 1 & 1 & 1 & 0 & 1\\
+            + &  1 & \_ & 0 & 0 & 1 & 1 & 1 & 1 \\
+            \hline
+            & 1 & \_ & 1 & 0 & 1 & 1 & 0 & 0\\
+        \end{tabular}\\
+        
+        \newpage
+        Since the result is a negative value (leading integer is 1), we need to find the 2's complement of this result then affix a minus sign (have the leading integer be equal to 1) in order to get the final answer to $(+29)+(-49)$.
+        $$1\_101100 \xrightarrow[]{\text{2's complement}} 0\_010100$$
+        Add the negative sign by changing the leading integer to 1.
+        $$0\_010100 \xrightarrow[]{} 1\_010100$$
+        Therefore, $$(+29)+(-49) = 0\_11101 + 1\_001111 = 1\_010100$$
+        Convert the binary result back into decimal to verify the answer.
+        $$1\_010100 \xrightarrow[]{} -20$$
+        $$+29 + (-49) = -20$$
+        
+        \item $(-29)+(+49)$
+        
+        $$1\_100011 + 0\_110001 = 0\_010100$$
+        Convert answer to decimal to verify that it is correct.
+        $$0\_010110 \xrightarrow[]{}20$$
+        $$(-29)+(+49) = 20$$
+        
+        \item $(-29)+(-49)$\\
+        
+        $$1\_100011 + 1\_001111 = 10\_110010 \quad \xleftarrow[\text{to avoid overflow}]{\text{added extra digit in front}}$$
+        $$10\_110010 \xrightarrow[]{} 1\_0110010$$
+        Since the answer is negative, find its 2's complement.\\
+        $$1\_0110010 \xrightarrow[]{} 0\_1001110$$
+        Affix the minus sign then convert to decimal to verify answer.\\
+        $$1\_1001110 \xrightarrow[]{} -78$$
+        $$(-29)+(-49) = -78$$
+        
+    \end{enumerate}
+
+    
+    
+    
+    
+\end{enumerate}
+
+
+
+
+
+\end{document} 

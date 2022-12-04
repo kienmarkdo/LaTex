@@ -1,0 +1,92 @@
+
+%% ==================================================================================================
+%%
+\documentclass[12pt]{book}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage{xlop} %% for multiplication https://tex.stackexchange.com/questions/11702/how-to-present-a-vertical-multiplication-addition
+\usepackage{listings} %% to format generic computer code
+\usepackage{lmodern} % for bold teletype font
+\usepackage{minted} % colour Java code
+
+\usepackage{tasks}
+%\NewTasks[style=enumerate,counter-format=tsk[A].,label-width=3ex]{choice}[\item](4)
+
+%% =======   set page margins    =======
+\setlength{\textheight}{10in}
+\setlength{\textwidth}{7.4in}
+\setlength{\topmargin}{-0.75in}
+\setlength{\oddsidemargin}{-0.5in}
+\setlength{\evensidemargin}{-0.5in}
+\setlength{\parskip}{0.15in}
+\setlength{\parindent}{0in}
+
+%%  for European long division
+% https://tex.stackexchange.com/questions/432435/how-to-set-up-european-french-style-long-division-in-tex
+\newcommand\frdiv[5]{%
+    \[
+    \renewcommand\arraystretch{1.5}
+    \begin{array}{l| l}
+    #1 & #2 \\
+    \cline{2-2}
+    #3 & #4 \\
+    \cline{1-1}
+    #5 & \\
+    \end{array}
+    \]
+}
+
+%%  for European long division
+
+
+%% ==================================================================================================
+
+\begin{document}
+
+\newcommand{\reporttitle}{Devoir 1}
+\newcommand{\reportauthorOne}{Kien Do}
+\newcommand{\cidOne}{300163370}
+\input{titlePage/titlepage.txt}
+
+
+
+%% ==================================================================================================
+
+%%%%%%%%%%%% PROBLEMS START HERE
+
+\begin{enumerate}
+    \item Faux
+    
+    La négation de l'énoncé est vraie.
+    
+    $$\neg \text{(l'énoncé)} \equiv \forall x \exists y \; (x^{y} \text{ est rationnel})$$
+    
+    Soit $x \in \mathbb{Q}$. Prenons $y = 1$. On voit que
+    $x^1 = x$ peu importe la valeur de $x$. Puisque $x \in \mathbb{Q}$ et $x^1 = x$, il exist une valeur de $y$ telle que $x^y$ est toujours rationnel. Ceci montre que la négation de l'énoncé est vraie, donc que l'énoncé est faux.
+    
+    \item Vrai
+    
+    $$\forall x \exists y \; (3x + 2y \text{ est pair} \xrightarrow[]{} 2x + 3y \text{ est impair})$$
+    
+    Preuve directe.
+    
+    Soit $x$ et $y$ des entiers quelconques. $2y$ est toujours pair. 3x est seulement pair quand $x$ est pair parce que le produit des deux entiers impairs est impair. Donc, $3x + 2y$ est pair seulement si $x$ est pair. Puisque la valeur de $y$ ne détermine pas si $3x + 2y$ est pair ou non, prenons $y=1$, un entier impair arbitraire.\\
+    
+    Pour la deuxième partie de l'énoncé, on voit que $2x$ est toujours pair et $3y$ est impair parce que $y=1$ est un entier impair. Donc, $2x+3y$ est impair.\\
+    
+    Donc, l'énoncé est vrai.
+
+
+\end{enumerate}
+
+
+
+
+
+
+\end{document} 

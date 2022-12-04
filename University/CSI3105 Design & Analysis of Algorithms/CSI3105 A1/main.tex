@@ -1,0 +1,118 @@
+
+%% ==================================================================================================
+%%
+\documentclass[12pt]{book}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage{xlop} %% for multiplication https://tex.stackexchange.com/questions/11702/how-to-present-a-vertical-multiplication-addition
+\usepackage{listings} %% to format generic computer code
+\usepackage{lmodern} % for bold teletype font
+\usepackage{minted} % colour Java code
+
+\usepackage{tasks}
+%\NewTasks[style=enumerate,counter-format=tsk[A].,label-width=3ex]{choice}[\item](4)
+
+%% =======   set page margins    =======
+\setlength{\textheight}{10in}
+\setlength{\textwidth}{7.4in}
+\setlength{\topmargin}{-0.75in}
+\setlength{\oddsidemargin}{-0.5in}
+\setlength{\evensidemargin}{-0.5in}
+\setlength{\parskip}{0.15in}
+\setlength{\parindent}{0in}
+
+%%  for European long division
+% https://tex.stackexchange.com/questions/432435/how-to-set-up-european-french-style-long-division-in-tex
+\newcommand\frdiv[5]{%
+    \[
+    \renewcommand\arraystretch{1.5}
+    \begin{array}{l| l}
+    #1 & #2 \\
+    \cline{2-2}
+    #3 & #4 \\
+    \cline{1-1}
+    #5 & \\
+    \end{array}
+    \]
+}
+
+%%  for European long division
+
+
+%% ==================================================================================================
+
+\begin{document}
+
+\newcommand{\reporttitle}{Assignment 1}
+\newcommand{\reportauthorOne}{Kien Do}
+\newcommand{\cidOne}{300163370}
+\input{titlePage/titlepage.txt}
+
+
+
+%% ==================================================================================================
+
+%%%%%%%%%%%% PROBLEMS START HERE
+
+\begin{enumerate}
+    %% ============================   New Item   ============================
+    \item \textbf{Answer}
+    
+    See scanned hand-written page.
+    
+    %% ============================   New Item   ============================
+    \item \textbf{Answer}
+    
+    If $n = 2$ and $A[2] - A[1] > 0$, return the result of $A[2] - A[1]$. $\qquad \xleftarrow[]{O(1)}$
+    
+    Otherwise,
+    
+    Copy the elements of array A into new array B. $\qquad \xleftarrow[]{O(n)}$
+    
+    Sort array B using merge sort. $\qquad \xleftarrow[]{O(n\log(n))}$
+    
+    Create two variables $numOne$ and $numTwo$. Let variable $i$ be 0 and variable $j$ be 1. $\qquad \xleftarrow[]{O(1)}$
+    
+    Iterate through array B, incrementing $i$ and $j$ by 1 after each iteration. In each iteration, calculate $B[j] - B[i]$. If $B[j] - B[i] > 0$ and $B[j] - B[i] < minimum$,
+    
+    - reassign $minimum$ with $B[j] - B[i]$,
+    
+    - reassign $numOne$ with $B[i]$,
+    
+    - reassign $numTwo$ with $B[j]$.
+    
+    Stop the iteration when $j$ equals $n$. $\qquad \xleftarrow[]{O(n)}$
+    
+    Create variables $indexOne$ and $indexTwo$. 
+    
+    Go back to array A, iterate through it, then set $indexOne$ as the current index in the iteration if the current number in array A equals $numOne$ and set $indexTwo$ as the current index in the iteration if the current number in array A equals $numTwo$. Upon first assignment of $indexOne$ or $indexTwo$, do not reassign a new index to $indexOne$ or $indexTwo$ again. $\qquad \xleftarrow[]{O(n)}$
+    
+    Return $indexOne$ and $indexTwo$, where $indexOne$ and $indexTwo$ represent the indices of array A such that $A[indexTwo] - A[indexOne] > 0$ and $A[indexTwo] - A[indexOne]$ is the minimum.\\
+    
+    Time complexity:
+    
+    Recall that the time complexity of an algorithm is the sum of the time complexity of every operation. Ignoring the constant $O(1)$ time complexities, we have that,
+    $$T(n) = O(n\log(n)) + O(n) + O(n)$$
+    where $T(n)$ is the non-constant time complexity of the algorithm.
+    
+    We have that,
+    \begin{align*}
+        T(n) = n\log(n) + n + n &\leq n\log(n) + 2n\\
+        &\leq n\log(n) + 2n\log(n)\\
+        &\leq 3n\log(n)\\
+        &= O(n\log(n))
+    \end{align*}
+    
+    Therefore, the algorithm runs in $O(n\log(n))$
+    
+    
+    
+    
+\end{enumerate}
+
+\end{document} 

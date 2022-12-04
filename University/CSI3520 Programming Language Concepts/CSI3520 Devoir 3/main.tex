@@ -1,0 +1,278 @@
+
+%% ==================================================================================================
+%%
+\documentclass[12pt]{book}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage{xlop} %% for multiplication https://tex.stackexchange.com/questions/11702/how-to-present-a-vertical-multiplication-addition
+\usepackage{listings} %% to format generic computer code
+\usepackage{lmodern} % for bold teletype font
+\usepackage{minted} % colour Java code
+
+\usepackage{tasks}
+%\NewTasks[style=enumerate,counter-format=tsk[A].,label-width=3ex]{choice}[\item](4)
+
+%% =======   set page margins    =======
+\setlength{\textheight}{10in}
+\setlength{\textwidth}{7.4in}
+\setlength{\topmargin}{-0.75in}
+\setlength{\oddsidemargin}{-0.5in}
+\setlength{\evensidemargin}{-0.5in}
+\setlength{\parskip}{0.15in}
+\setlength{\parindent}{0in}
+
+%%  for European long division
+% https://tex.stackexchange.com/questions/432435/how-to-set-up-european-french-style-long-division-in-tex
+\newcommand\frdiv[5]{%
+    \[
+    \renewcommand\arraystretch{1.5}
+    \begin{array}{l| l}
+    #1 & #2 \\
+    \cline{2-2}
+    #3 & #4 \\
+    \cline{1-1}
+    #5 & \\
+    \end{array}
+    \]
+}
+
+%%  for European long division
+
+
+%% ==================================================================================================
+
+\begin{document}
+
+%\title{ITI1100 Digital Systems I}
+%\author{Kien Do 300163370}
+%\date{Assignment \#1}
+\newcommand{\reporttitle}{Devoir 3}
+\newcommand{\reportauthorOne}{Kien Do}
+\newcommand{\cidOne}{300163370}
+\input{titlePage/titlepage.txt}
+
+
+
+%% ==================================================================================================
+
+%%%%%%%%%%%% PROBLEMS START HERE
+
+\begin{enumerate}
+    % \item \textbf{Réponse}\\
+    \item \textbf{Réponse}
+\begin{minted}[breaklines,frame=single]{r}
+# Create a vector `names` that contains your name and the names of 2 people
+# next to you. Print the vector.
+# Use the colon operator : to create a vector `n` of numbers from 10:49
+# Use the `length()` function to get the number of elements in `n`
+# Add 1 to each element in `n` and print the result
+# Create a vector `m` that contains the numbers 10 to 1 (in that order).
+# Hint: use the `seq()` function
+# Subtract `m` FROM `n`. Note the recycling!
+# Use the `seq()` function to produce a range of numbers from -5 to 10 in `0.1`
+# increments. Store it in a variable `x_range`
+
+names <- c("Kien", "Evan", "Shivan");
+print(names);
+
+n <- c(10:49);
+print(length(n));
+n <- n + 1;
+print(n);
+
+
+m <- seq.int(10, 1); # peut être c(10:1) également
+print(m)
+
+print(n - m);
+
+x_range <- seq(-5, 10, 0.1);
+print(x_range);
+\end{minted}
+
+% ===================================================================
+\newpage
+    \item \textbf{Réponse}
+    
+    \underline{Code en C}
+\begin{minted}[breaklines,frame=single]{c}
+#include <stdio.h>
+
+int main()
+{
+    int j = 0;
+    int k = (j + 13) / 27;
+    
+    while (k <= 10)
+    {
+        k = k + 1;
+        int i = 3 * k - 1;
+    }
+
+    return 0;
+}
+\end{minted}
+    \underline{Code en Java}
+\begin{minted}[breaklines,frame=single]{java}
+public class Main
+{
+    public static void main(String[] args) {
+        int j = 0;
+        int k = (j + 13) / 27;
+        
+        while (k <= 10) {
+            k = k + 1;
+            int i = 3 * k - 1;
+        }
+    }
+}
+\end{minted}
+    \underline{Code en Python}
+\begin{minted}[breaklines,frame=single]{python}
+j = 0
+k = (j + 13) / 27
+
+while k <= 10:
+    k = k + 1
+    i = 3 * k - 1
+\end{minted}
+
+\underline{Meilleure écriture}: Python\\
+--- Très facile et court à écrire. Pas besoin de spécifier les types des données.\\
+\underline{Meilleure lisibilité}: C\\
+--- Très facile à lire. Les accolades de chaque bloque de code commencent et terminent sur la même ligne verticale. Les types des données sont spécifiés, ce qui améliore la lisibilité.\\
+\underline{Meilleure combinaison}: Java\\
+--- Plus facile à lire par rapport à Python et plus facile à écrire par rapport à C.
+
+% ===================================================================
+\newpage
+    \item \textbf{Réponse}\\
+
+    Les valeurs de sum1 et sum2 si les opérandes dans les expressions sont évalués de:
+    \begin{enumerate}
+        \item \underline{Gauche à droite}\\
+
+        sum1 = 46\\
+        sum2 = 48\\
+        
+        \item \underline{Droite à gauche}\\
+
+        sum1 = 48\\
+        sum2 = 46\\
+    \end{enumerate}
+
+% ===================================================================
+\newpage
+    \item \textbf{Réponse}\\
+    \underline{Le programme de l'exercice 3 en C++}
+\begin{minted}[breaklines,frame=single]{c++}
+#include <iostream>
+
+using namespace std;
+
+int fun(int *k)
+{
+    *k += 4;
+    return 3 * (*k) - 1;
+}
+
+int main()
+{
+    int i = 10, j = 10, sum1, sum2;
+    sum1 = (i / 2) + fun(&i);
+    sum2 = fun(&j) + (j / 2);
+    
+    return 0;
+}
+
+// Résultats:
+// sum1 = 46 et sum2 = 48
+\end{minted}
+\underline{Le programme de l'exercice 3 en Java}
+\begin{minted}[breaklines,frame=single]{java}
+public class Main
+{
+    public static int fun(int k) {
+        k += 4;
+        return 3 * k - 1;
+    }
+    
+    public static void main(String[] args) {
+        int i = 10, j = 10, sum1, sum2;
+        sum1 = (i / 2) + fun(i);
+        sum2 = fun(j) + (j / 2);
+    }
+}
+
+// Résultats:
+// sum1 = 46 et sum2 = 46 
+\end{minted}
+--- Les deux versions sont différentes parce que en Java, les entiers sont passés par valeur, et non passés par addresse, et vice versa. C'est-à-dire, en C++, les entiers i et j changent en main() car ils étaient changés en fun(). Ça fonctionne parce que ces deux entiers étaient passés par référence. Par contre, en Java, les entiers i et j ne changent pas en main() même s'ils étaient changés en fun(), parce que ces entiers sont passés par valeur.
+
+
+% ===================================================================
+\newpage
+    \item \textbf{Réponse}\\
+    
+    Écrivez un programme en Java, C++, Python, qui effectue un grand nombre d'opérations en virgule flottante et un nombre égal d'opérations sur des nombres entiers et comparez le temps requis.\\
+
+\underline{Java}
+\begin{minted}[breaklines,frame=single]{java}
+public class Main {
+    public static void main(String[] args) {
+        float total = 0;
+        int count = 100000000;
+        for (int i = 0; i < count; i++) { 
+            total += 0.1; 
+        } 
+    }
+}
+\end{minted}
+
+\underline{C++}
+\begin{minted}[breaklines,frame=single]{c++}
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    float total = 0.0;
+    int count = 100000000;
+    for (int i = 0; i < count; i++)
+    { 
+        total += 0.1; 
+    } 
+
+    return 0;
+}
+\end{minted}
+
+\underline{Python}
+\begin{minted}[breaklines,frame=single]{python}
+total = 0.0
+count = 100000000
+for x in range(count): 
+    total += 0.1
+\end{minted}
+
+\underline{Java}: $\sim$3 secondes\\
+--- Vitesse moyenne car Java est compilé et interprété.\\
+\underline{C++}: $\sim$1 seconde\\
+--- Vitesse la plus rapide car C++ est compilé et est très bon pour les calculs mathématiques.\\
+\underline{Python}: $\sim$9 secondes\\
+--- Vitesse la plus lente car Python est interprété.
+
+
+
+
+
+
+\end{enumerate}
+
+\end{document} 

@@ -1,0 +1,54 @@
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+
+%----------------------------------------------------------------------------------------
+%	LOGO SECTION
+%----------------------------------------------------------------------------------------
+
+
+
+\begin{center} % Center remainder of the page
+
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\includegraphics[width = 10cm]{titlePage/uottawa_hor_black.png}\\[1.5cm] 
+\textbf{\textsc{\Large MAT 2377 - Probability and Statistics for Engineers}}\\[1.0cm] 
+\textsc{\Large Winter 2022 Section A}\\[0.5cm] 
+\textsc{\large Professor Wangjun Yuan}\\[0.95cm] 
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \huge \bfseries \reporttitle}\\ % Title of your document
+\HRule \\[1.5cm]
+\end{center}
+%----------------------------------------------------------------------------------------
+%	AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+%\begin{minipage}{0.4\hsize}
+\begin{flushleft} \large
+%\textit{Authors:}\\
+\reportauthorOne~(ID: \cidOne)\\ % Your name
+%\reportauthorTwo~(ID: \cidTwo)   % Your name
+\end{flushleft}
+\vspace{4cm}
+\makeatletter
+%Date: \@date 
+
+\vfill % Fill the rest of the page with whitespace
+
+
+
+\makeatother
+
+
+\end{titlepage}
+

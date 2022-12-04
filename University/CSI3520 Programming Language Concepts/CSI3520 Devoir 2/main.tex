@@ -1,0 +1,253 @@
+
+%% ==================================================================================================
+%%
+\documentclass[12pt]{book}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage{xlop} %% for multiplication https://tex.stackexchange.com/questions/11702/how-to-present-a-vertical-multiplication-addition
+\usepackage{listings} %% to format generic computer code
+\usepackage{lmodern} % for bold teletype font
+\usepackage{minted} % colour Java code
+
+\usepackage{tasks}
+%\NewTasks[style=enumerate,counter-format=tsk[A].,label-width=3ex]{choice}[\item](4)
+
+%% =======   set page margins    =======
+\setlength{\textheight}{10in}
+\setlength{\textwidth}{7.4in}
+\setlength{\topmargin}{-0.75in}
+\setlength{\oddsidemargin}{-0.5in}
+\setlength{\evensidemargin}{-0.5in}
+\setlength{\parskip}{0.15in}
+\setlength{\parindent}{0in}
+
+%%  for European long division
+% https://tex.stackexchange.com/questions/432435/how-to-set-up-european-french-style-long-division-in-tex
+\newcommand\frdiv[5]{%
+    \[
+    \renewcommand\arraystretch{1.5}
+    \begin{array}{l| l}
+    #1 & #2 \\
+    \cline{2-2}
+    #3 & #4 \\
+    \cline{1-1}
+    #5 & \\
+    \end{array}
+    \]
+}
+
+%%  for European long division
+
+
+%% ==================================================================================================
+
+\begin{document}
+
+%\title{ITI1100 Digital Systems I}
+%\author{Kien Do 300163370}
+%\date{Assignment \#1}
+\newcommand{\reporttitle}{Devoir 2}
+\newcommand{\reportauthorOne}{Kien Do}
+\newcommand{\cidOne}{300163370}
+\input{titlePage/titlepage.txt}
+
+
+
+%% ==================================================================================================
+
+%%%%%%%%%%%% PROBLEMS START HERE
+
+\begin{enumerate}
+    \item \textbf{Réponse}\\
+    
+    Selon les règles de portée \textbf{statique}, la valeur de $x$ affichée dans la fonction sub1() est 5.\\
+    Selon les règles de portée \textbf{dynamique}, la valeur de $x$ affichée dans la fonction sub1() est 10.
+    \item \textbf{Réponse}
+\begin{minted}[breaklines,frame=single]{java}
+Variable                 Où déclaré
+
+Dans sub1():
+    a                    sub1
+    y                    sub1
+    z                    sub1
+    x                    main
+    
+Dans sub2():
+    a                    sub2
+    b                    sub2
+    z                    sub2
+    x                    main
+    y                    main
+
+Dans sub3():
+    a                    sub3
+    x                    sub3
+    w                    sub3
+    y                    main
+    z                    main
+\end{minted}
+    \item \textbf{Réponse}
+\begin{minted}[breaklines,frame=single]{java}
+Variable                 Définition
+
+Dans point 1:
+    a                    1
+    b                    2
+    c                    2
+    d                    2
+Dans point 2:
+    a                    1
+    b                    2
+    c                    3
+    d                    3
+    e                    3
+Dans point 3:
+    Même chose que point 1 puisque c'est le même scope.
+Dans point 4:
+    a                    1
+    b                    1
+    c                    1
+\end{minted}
+
+\newpage
+
+    \item \textbf{Réponse}
+    \begin{enumerate}
+        \item \texttt{main} calls \texttt{fun1}; \texttt{fun1} calls \texttt{fun2}; \texttt{fun2} calls \texttt{fun3}.
+\begin{minted}[breaklines,frame=single]{java}
+Variable                 Où déclaré
+
+d,e,f                    fun3
+c                        fun2
+b                        fun1
+a                        main
+\end{minted}
+        \item \texttt{main} calls \texttt{fun1}; \texttt{fun1} calls \texttt{fun3}.
+\begin{minted}[breaklines,frame=single]{java}
+Variable                 Où déclaré
+
+d,e,f                    fun3
+b,c                      fun1
+a                        main
+\end{minted}
+        \item \texttt{main} calls \texttt{fun2}; \texttt{fun2} calls \texttt{fun3}; \texttt{fun3} calls \texttt{fun1}.
+\begin{minted}[breaklines,frame=single]{java}
+Variable                 Où déclaré
+
+b,c,d                    fun1
+e,f                      fun3
+a                        main
+\end{minted}
+        \item \texttt{main} calls \texttt{fun3}; \texttt{fun3} calls \texttt{fun1}.
+\begin{minted}[breaklines,frame=single]{java}
+Variable                 Où déclaré
+
+b,c,d                    fun1
+e,f                      fun3
+a                        main
+\end{minted}
+        \item \texttt{main} calls \texttt{fun1}; \texttt{fun1} calls \texttt{fun3}; \texttt{fun3} calls \texttt{fun2}.
+\begin{minted}[breaklines,frame=single]{java}
+Variable                 Où déclaré
+
+c,d,e                    fun2
+f                        fun3
+b                        fun1
+a                        main
+\end{minted}
+        \item \texttt{main} calls \texttt{fun3}; \texttt{fun3} calls \texttt{fun2}; \texttt{fun2} calls \texttt{fun1}.
+\begin{minted}[breaklines,frame=single]{java}
+Variable                 Où déclaré
+
+b,c,d                    fun1
+e                        fun2
+f                        fun3
+a                        main
+\end{minted}
+    \end{enumerate}
+
+\newpage    
+
+    \item \textbf{Réponse}
+    \begin{enumerate}
+        \item \texttt{A -> aB | b | cBB}\\
+        
+        FIRST(aB) = a\\
+        FIRST(b) = b\\
+        FIRST(cBB) = c\\
+        
+        $a \cap b \cap c = \O$\\
+        
+        Le test de disjonction par paires réussit.
+        
+        \item \texttt{A -> aB | bA | aBb}\\
+        
+        FIRST(aB) = a\\
+        FIRST(bA) = b\\
+        FIRST(aBb) = a\\
+        
+        Le test de disjonction par paires échoue.
+        
+        \item \texttt{A -> aaA | b | caB}\\
+        
+        FIRST(aaA) = a\\
+        FIRST(b) = b\\
+        FIRST(caB) = c\\
+        
+        Le test de disjonction par paires réussit.
+    \end{enumerate}
+    
+    \item \textbf{Réponse}\\
+    
+    Grammaire:
+\begin{minted}[breaklines,frame=none]{java}
+    S --> aAb | bBA
+    A --> ab | aAB
+    B --> aB | b
+\end{minted}
+        \begin{enumerate}
+            \item \texttt{aaAbb}\\
+            
+            Arbre d'analyse (parse tree):
+\begin{minted}[breaklines,frame=none]{java}
+              S
+            / | \
+           a  A  b
+            / | \
+           a  A  B
+                 |
+                 b
+\end{minted}
+            Phrase(s): aaAbb, aaABb, aAb\\
+            Phrase(s) simple: b\\
+            Poingée (handle): b, aAB\\
+            
+            \item \texttt{bBab}\\
+            
+            Arbre d'analyse (parse tree):
+\begin{minted}[breaklines,frame=none]{java}
+              S
+            / | \
+           b  B  A
+                / \
+               a   b
+\end{minted}
+            Phrase(s): bBab, bBA\\
+            Phrase(s) simple: ab\\
+            Poingée (handle): ab\\
+        \end{enumerate}
+
+
+\end{enumerate}
+
+
+
+
+
+
+\end{document} 

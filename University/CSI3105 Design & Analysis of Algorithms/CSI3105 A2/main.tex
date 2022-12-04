@@ -1,0 +1,102 @@
+
+%% ==================================================================================================
+%%
+\documentclass[12pt]{book}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage{xlop} %% for multiplication https://tex.stackexchange.com/questions/11702/how-to-present-a-vertical-multiplication-addition
+\usepackage{listings} %% to format generic computer code
+\usepackage{lmodern} % for bold teletype font
+\usepackage{minted} % colour Java code
+
+\usepackage{tasks}
+%\NewTasks[style=enumerate,counter-format=tsk[A].,label-width=3ex]{choice}[\item](4)
+
+%% =======   set page margins    =======
+\setlength{\textheight}{10in}
+\setlength{\textwidth}{7.4in}
+\setlength{\topmargin}{-0.75in}
+\setlength{\oddsidemargin}{-0.5in}
+\setlength{\evensidemargin}{-0.5in}
+\setlength{\parskip}{0.15in}
+\setlength{\parindent}{0in}
+
+%%  for European long division
+% https://tex.stackexchange.com/questions/432435/how-to-set-up-european-french-style-long-division-in-tex
+\newcommand\frdiv[5]{%
+    \[
+    \renewcommand\arraystretch{1.5}
+    \begin{array}{l| l}
+    #1 & #2 \\
+    \cline{2-2}
+    #3 & #4 \\
+    \cline{1-1}
+    #5 & \\
+    \end{array}
+    \]
+}
+
+%%  for European long division
+
+
+%% ==================================================================================================
+
+\begin{document}
+
+\newcommand{\reporttitle}{Assignment 2}
+\newcommand{\reportauthorOne}{Kien Do}
+\newcommand{\cidOne}{300163370}
+\input{titlePage/titlepage.txt}
+
+
+
+%% ==================================================================================================
+
+%%%%%%%%%%%% PROBLEMS START HERE
+
+\begin{enumerate}
+    %% ============================   New Item   ============================
+    \item 
+    \begin{enumerate}
+        \item \textbf{Answer}\\
+        
+        \underline{Proof by contradiction:}\\
+        
+        Assume there exists a directed graph that has two black holes.\\
+        
+        Let $G = (V, E)$ be a directed graph with two black hole vertices, $a$ and $b$. That means, $a$ and $b$ both have no outgoing edges. This is a contradiction, because if $a$ does not have an outgoing edge, then $b$ cannot be a black hole. By definition, $b$ can only be a black hole if all other vertices has an outgoing edge that leads to $b$. Since $a$ does not have an outgoing edge, $a$ cannot lead to $b$.\\
+        
+        Similarly, assume that there exists a directed graph with $n$ number of black holes, where $n \geq 2$. That is, let graph $G = {V, E}$, where $V = \{a_1, a_2,... , a_n, b_0, b_1,...b_k\}$, $\{a_1, a_2,... a_n\}$ are black holes, and ${b_0, b_1,... b_k}$ are not black holes (where $k \in Z, k \geq 1$).\\
+        
+        Since $\{a_1, a_2,... , a_n\}$ are black holes, they do not have any outgoing edges. However, that means graph $G$ is not a graph that contains a black hole because not all vertices have an edge, let alone an outgoing edge that leads to $v \in \{a_1, a_2,... , a_n\}$.\\
+        
+        $\therefore$ Since a graph cannot contain two or more black holes, we have that the statement ``in a directed graph, there is at most one black hole" is true.\\
+        
+        \item \textbf{Answer}\\
+        
+        Let $G = (V,E)$ be a directed graph. Let algorithm $hasBlackhole(G)$, which takes graph $G$ as argument, return true if a black hole is present inside the graph G, and false if not.\\
+        
+        Algorithm $hasBlackhole(G)$:
+        
+        - Represent the directed graph, $G$, in adjacency lists.\\
+        - Initialize an empty list $A$.\\
+        - Iterate through each vertex in $G$. If a vertex's adjacency list is empty, add that vertex to list $A$. \qquad $\xleftarrow[]{} \boldsymbol{O(|V|)}$\\
+        ------ This step essentially finds any vertex whose $outdegree$ is 0.\\
+        - If the length of list $A$ is not equal to 1, return false. Otherwise, continue. \qquad $\xleftarrow[]{} \boldsymbol{O(1)}$\\
+        ------ This is because if the length of $A$ is 0, then there are no vertices with an $outdegree$ of 0, which means there are no black holes. And if the length of $A$ is greater than 1, a black hole cannot exist, as we have just proven in part a) that a directed graph can only have at most 1 black hole.\\
+        - Iterate through each vertex's adjacency list (except for the vertex with an empty adjacency list that we have identified in the previous step, let's call it vertex $v$); if every vertices' adjacency list contain the vertex $v$, then return true. Otherwise, return false. \qquad $\xleftarrow[]{} \boldsymbol{O(|V| + |E|)}$\\
+        ------ If every vertices' adjacency list contain the vertex $v$, that means all of those vertices have an edge that leads to vertex $v$ and satisfies the definition of a black hole. Otherwise, it does not satisfy the definition of a black hole, and therefore means that a black hole does not exist in this graph, $G$.\\
+        
+        $\therefore$ Since the baromometer instruction is $O(|V|+|E|)$, we have that the time complexity of $hasBlackhole(G)$ is $O(|V|+|E|)$.
+        
+        
+    \end{enumerate}
+    
+\end{enumerate}
+
+\end{document} 
