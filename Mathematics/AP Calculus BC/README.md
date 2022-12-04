@@ -1,6 +1,6 @@
 # AP Mathematics
 
-To view the paper: Each folder has PDF file. Click on it to see the Preview.
+View a paper by navigating to a folder then clicking on the file with a PDF extension.
 
 - Grade 11 - AP Functions
 - Grade 12 - AP Calculus and Vectors BC
