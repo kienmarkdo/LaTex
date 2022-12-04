@@ -2,8 +2,9 @@
 *.tex linguist-detectable=false
 
 # Turns on linguist detection for one single .tex file
-AP[[:space:]]Calculus[[:space:]]BC/Assignment[[:space:]]%23[[:space:]]1/main.tex linguist-detectable=true
-AP[[:space:]]Calculus[[:space:]]BC/Assignment[[:space:]]%23[[:space:]]1/main.tex linguist-language=tex
+University/ITI1100[[:space:]]Digital[[:space:]]Systems[[:space:]]I/ITI1100[[:space:]]Assignment[[:space:]]1/main.tex linguist-detectable=true
+# AP[[:space:]]Calculus[[:space:]]BC/Assignment[[:space:]]%23[[:space:]]1/main.tex linguist-detectable=true
+# AP[[:space:]]Calculus[[:space:]]BC/Assignment[[:space:]]%23[[:space:]]1/main.tex linguist-language=tex
 # Set a specific file to tex https://github.com/github/linguist/discussions/5273
 # Deal with file paths with spaces https://stackoverflow.com/questions/52508887/how-do-i-define-a-gitattributes-rule-for-a-file-with-spaces-in-it
 # Use # symbol in file path https://stackoverflow.com/questions/21526313/use-character-in-url-inside-file-name
