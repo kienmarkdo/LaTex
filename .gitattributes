@@ -2,7 +2,7 @@
 # Turns off linguist detection for all .tex files
 # *.tex linguist-detectable=false
 # AP[[:space:]]Calculus[[:space:]]BC/* linguist-vendored
-University/** linguist-vendored=true
+University/** linguist-detectable=false
 
 # Turns on linguist detection for one single .tex file
 # IGNORE.tex -linguist-detectable
