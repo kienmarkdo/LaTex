@@ -1,0 +1,471 @@
+﻿%%
+%%
+\documentclass[12pt]{book}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{tikz}
+\setlength{\textheight}{10in}
+\setlength{\textwidth}{7.4in}
+\setlength{\topmargin}{-0.75in}
+\setlength{\oddsidemargin}{-0.5in}
+\setlength{\evensidemargin}{-0.5in}
+\setlength{\parskip}{0.15in}
+\setlength{\parindent}{0in}
+
+
+
+
+
+
+\begin{document}
+
+
+
+
+\vspace{-1.0in}\begin{center}
+\Large{MCR3UR : Pre Advanced Placement Functions, Enriched }
+
+
+\Large{Assignment \#4}
+
+
+
+
+\end{center}
+
+
+%\medskip
+
+
+\vspace{0.015in}\hrulefill\ 
+
+
+\textbf{Reference Declaration} %  Fill in your Reference Declarations in this section before your submit your assignment.
+
+
+Complete the Reference Declaration section below in order for your assignment to be graded.
+
+
+If you used any references beyond the course text and lectures (such as other texts, discussions with your peers or online resources), indicate this information in the space below.  If you did not use any aids, state this in the space provided. 
+
+
+Be sure to cite appropriate theorems or identities throughout your work. Justify conclusions with clear and logical explanations. 
+
+
+Note: Your submitted work must be \textbf{your original work}. 
+
+
+Family Name: Kien\\%Family Name Here
+First Name: Do%First Name Here
+
+
+Declared References: Asked Simon for clarity with question 2 and question 3. Discussion with Simon and Isaac about question 3a.
+
+
+% Type your references here.
+% You can use as many lines as required.
+
+
+\vspace{0.015in}\hrulefill\ 
+
+
+\newpage
+
+
+%%%%%%%%%%%% PROBLEMS START HERE
+
+
+\begin{enumerate}
+
+
+%% PROBLEM 1
+\item         Determine an exact value for the expression $\sec(135^{\circ}) - \cot(45^{\circ})$. Be sure to use your knowledge of special angles and related acute angles.
+
+
+%% I would recommend sandwiching your solution to every problem between the kind of structure I have provided below re: initial \vspace, the Solution: heading and the ending \vspace.
+\vspace{0.3cm} 
+\textbf{Solution:}\\
+% Your solution starts here.
+Let the value of the expression be $x$.
+\begin{align*}
+    x &= \sec(135^{\circ}) - \cot(45^{\circ})\\
+    x &= \frac{1}{\cos(135^\circ)} - \frac{1}{\tan(45^{\circ})}\\
+    x &= \frac{1}{\cos(135^\circ)} - \frac{1}{1}
+\end{align*}
+From special angles, I know that $\cos(135^\circ) = -\cos(180^\circ - 135^\circ) = -\cos(45^\circ)$\\
+Sub in $-\cos(45) = \cos(135^\circ)$ 
+\begin{align*}
+    x &= \frac{1}{-\cos(45^\circ)} - 1\\
+    x &= \frac{1}{-\frac{1}{\sqrt{2}}} - 1\\
+    x &= -\sqrt{2} - 1
+\end{align*}
+\vspace{0.3cm}
+Therefore, the value of the expression $\sec(135^{\circ}) - \cot(45^{\circ}) = -\sqrt{2} - 1$.
+
+
+\newpage
+
+
+%% PROBLEM 2
+\item Two spotlights, one blue and one white, are 6 metres apart on a track on the ceiling of a ballroom. A stationary observer standing in the doorway on the ballroom floor notices that
+the angle of elevation is $45^{\circ}$ to the blue light and $70^{\circ}$ to the white light. Given that the observer is 1.5 metres tall, determine the height of the ballroom ceiling (to the nearest tenth of a metre). Include a labeled diagram of the situation with any important information that you are using in your solution.\\
+
+
+\textbf{Solution:}\\
+
+
+Here is the diagram representing the question:\\
+\textit{*Note that this diagram is not to scale.}\\
+
+
+%% FIGURE 1
+\begin{tikzpicture}
+%======================================================
+                        %lines
+%top horizontal line, red. PC
+    \draw [red, thick] (0, 5) -- (10, 5);
+%left vertical line, OP
+    \draw (0,0) -- (0, 0.75) node[left] {1.5 m} -- (0, 3.5) -- (0, 5) ;
+%45 degree angle line, AC
+    \draw (0, 1.5) -- (5, 5);
+%70 degree angle line, AD
+    \draw (0, 1.5) -- (2, 5);
+%dashed horizontal line above 1.5m, observer line, AB
+    \draw [dashed](0, 1.5) -- (10, 1.5);
+%dashed vertical line, BC
+    \draw [dashed](5, 5) -- (5, 1.5);
+%dashed horizontal line, FLOOR
+    \draw [dashed] (0, 0) -- (10, 0);
+%======================================================
+                    %labels
+            %C++ equivalent of initializing
+    \coordinate (O) (0,0);
+    \coordinate (P) (0,5);
+    \coordinate (A) (0,1.5);
+    \coordinate (B) (5,1.5);
+    \coordinate (C) (5,5);
+    \coordinate (D) (2,5);
+    \coordinate (6 metres) (3.5,5);
+    \draw (O) (0, 0) node[below left]{$O$};
+    \draw (P) (0, 5) node[above left]{$P$};
+    \draw (A) (0, 1.5) node[below right]{$A$};
+    \draw (B) (5, 1.5) node[below]{$B$};
+    \draw (C) (5, 5) node[above]{$C$};
+    \draw (D) (2, 5) node[above]{$D$};
+    \draw (6 metres) (3.5, 5) node[above]{$6$};
+\end{tikzpicture}
+\textbf{Figure 1.}\\
+
+
+\textbf{Given:} $\angle BAC = 45^\circ,\; \angle BAD = 70^\circ,\; \overline{DC} = 6$.\\
+\textbf{Determine:} $\overline{OP} =\;?$
+
+
+To determine $\overline{OP}$, I must determine $\overline{AP}$. All of the following steps will be towards determining $\overline{AP}.$\\
+
+
+\begin{center}
+    \textbf{Taking a closer look at triangle CAD.}
+\end{center}
+
+
+\textbf{Determine angles CAD, DCA, ADC:} \\
+$\angle CAD = 70^\circ - 45^\circ = 25^\circ$\\
+
+
+Referring to figure 1, $\overline{PC}$ and $\overline{AB}$ are parallel, therefore, $\overline{DC}$ and $\overline{AB}$ are also parallel. This makes $\angle BAC\; and\; \angle DCA$ alternate angles.\\
+$\angle DCA = \angle BAC = 45^\circ$\\
+
+
+$\angle ADC = 180^\circ - 45^\circ - 70^\circ = 110^\circ$\\
+
+
+Therefore, $\angle CAD = 25^\circ,\; \angle DCA = 45^\circ,\; \angle ADC = 110^\circ$.\\
+\newpage
+\textbf{Determine side length AD:} \\
+Using the sine law, the given values and the previously determined values, I can determine side length AD.
+\begin{align*}
+    \frac{AD}{\sin DCA} &= \frac{6}{\sin CAD}\\
+    \frac{AD}{\sin 45^\circ} &= \frac{6}{\sin 25^\circ}\\
+    AD &= \frac{6}{\sin 25^\circ} \times \sin 45^\circ\\
+    AD &\approx 10.03894311068
+\end{align*}
+Therefore, side AD $\approx$ 10.039.
+\begin{center}
+    \textbf{Taking a closer look at triangle PDA.}
+\end{center}
+\textbf{Determine angle PDA:}\\
+In the previous section, I stated that $\overline{DC}$ and $\overline{AB}$ are parallel. Therefore, $\angle BAD$ and $\angle PDA$ are alternate angles. Using the given info, I can determine $\angle PDA$.\\
+$\angle PDA = \angle BAD = 70^\circ$.\\
+
+
+Use the sine law, the given values and previously determined values to determine $\overline{AP}$.
+\begin{align*}
+    \frac{AP}{\sin PDA} &= \frac{\overline{AP}}{\sin APD}\\
+    \frac{AP}{\sin 70^\circ} &= \frac{10.0389}{\sin 90^\circ}\\
+    AP &= \frac{10.039}{\sin 90^\circ} \times {\sin 70^\circ}c\\
+    AP &\approx 9.43352076164
+\end{align*}
+Therefore, side AP $\approx$ 9.4335.
+\begin{center}
+    \textbf{Determining the height of the ceiling.}
+\end{center}
+Sub in $\overline{AP} = 9.4335$.
+\begin{align*}
+    \overline{OP} &= \overline{AP} + 1.5\\
+    \overline{OP} &= 9.4335 + 1.5\\
+    \overline{OP} &= 9.4335 + 1.5\\
+    \overline{OP} &= 10.9335
+\end{align*}
+Therefore, the height of the ceiling is 10.93 metres.
+
+
+\newpage
+
+
+%% PROBLEM 3
+\item The point $(-3,-4)$ is on the terminal arm of a principal angle $\theta$ in standard position. 
+
+
+\includegraphics[scale=0.8]{TerminalArm.png}
+
+
+\begin{enumerate}
+\item List the values of all six trigonometric ratios.\\
+
+
+\textbf{Solution:}\\
+% Your solution starts here.
+To determine the value of all six trig ratios, I need to know the value of $\theta$.\\
+
+
+Let point (0,0) be A, (0, -4) be B, (-3, -4) be C. These three points connect to form triangle A, B, C.\\
+
+
+I know that $\angle ABC$ is $90^\circ$ and the two sides adjacent to the right angle, $\overline{AB}$ and $\overline{BC}$ have dimensions of 4 and 3, respectively. This means the hypotenuse is 5 as this is a 3, 4, 5 triangle.\\
+
+
+\textbf{1. Sin:}\\
+\begin{align*}
+    \sin \theta = \frac{\overline{AB}}{\overline{AC}}\\
+    \sin \theta = \frac{-4}{5}
+\end{align*}
+\textbf{2. Cos:}\\
+\begin{align*}
+    \cos \theta = \frac{\overline{BC}}{\overline{AC}}\\
+    \cos \theta = \frac{-3}{5}
+\end{align*}
+\textbf{3. Tan:}\\
+\begin{align*}
+    \tan \theta = \frac{\overline{AB}}{\overline{BC}}\\
+    \tan \theta = \frac{-4}{-3}\\
+    \tan \theta = \frac{4}{3}
+\end{align*}
+\textbf{4. Csc:}\\
+\begin{align*}
+    \csc \theta = \frac{1}{\sin \theta}\\
+    \csc \theta = \frac{1}{\frac{-4}{5}}\\
+    \csc \theta = \frac{5}{-4}
+\end{align*}
+\textbf{5. Sec:}\\
+\begin{align*}
+    \sec \theta = \frac{1}{\cos \theta}\\
+    \sec \theta = \frac{1}{\frac{-3}{5}}\\
+    \sec \theta = \frac{5}{-3}
+\end{align*}
+\textbf{6. Cotan:}\\
+\begin{align*}
+    \cot \theta = \frac{1}{\tan \theta}\\
+    \cot \theta = \frac{1}{\frac{4}{3}}\\
+    \cot \theta = \frac{3}{4}
+\end{align*}
+Therefore, the six trigonometric ratios are:
+$$\sin \theta = \frac{-4}{5},\; \cos \theta = \frac{-3}{5},\; \tan \theta = \frac{4}{3},\; \csc \theta = \frac{5}{-4},\; \sec \theta = \frac{5}{-3},\; \cot \theta = \frac{3}{4}.$$
+
+
+\newpage
+
+
+\item Determine possible values for $\theta$. Justify your conclusion briefly.\\
+
+
+\textbf{Solution:}\\
+% Your solution starts here.
+I know that the x-axis is parallel to side BC, therefore $\angle BCA$ is the same as the angle created by the negative side of the x-axis and side AC because they are alternate angles. Since they are alternate angles, this will help me determine $\theta$ because  $180 + \angle BCA = \theta$.\\
+
+
+\textbf{Determine angle BCA:}\\
+Let $\angle BCA$ be $x$.\\
+**Note that this is sin of angle BCA, not theta, therefore the ratio must be positive.\\
+
+
+$\sin x = \dfrac{4}{5}$\\
+$x = \sin^{-1} \left(\dfrac{4}{5}\right)$\\
+$x = 53.13$\\
+
+
+\textbf{Determine $\Theta$:}\\
+
+
+\textit{Possibility 1:}\\
+$\theta = 180^\circ + 53.13^\circ$\\
+$\theta = 223.13^\circ$\\
+
+
+\textit{Possibility 2:}\\
+$\theta = 223.13^\circ + 360^\circ$\\
+$\theta = 583.13^\circ$\\
+
+
+\textbf{Justifying my answers:}\\
+$\sin \theta = \dfrac{-4}{5}$\\
+
+
+\textit{Possibility 1:}\\
+$\sin (223.13^\circ) = \dfrac{-4}{5}$\\
+
+
+\textit{Possibility 2:}\\
+$\sin (583.13^\circ) = \dfrac{-4}{5}$\\
+
+
+Therefore, two possible values for $\theta$ are $223.13^\circ$ and $583.13^\circ$\\
+
+
+\end{enumerate}
+
+
+\newpage
+
+
+%% PROBLEM 4
+\item Prove the trigonometric identity $\csc(x)(1-\cos(x)) = \dfrac{\sin(x)}{1+\cos(x)}$ using the proper form and conventions. State restrictions on $x$ (assuming $0^{\circ} \le x \le 360^{\circ}$).\\
+
+
+\textbf{Solution:}\\
+For this trigonometric identity, I will manipulate the right side. Below are my steps and manipulations for the indicated steps.
+
+
+\begin{align}
+    &= \frac{\sin x}{1 + \cos x}\;\;\;\;\;\;\;\;\;\;(x \neq 180)\\
+    &= \frac{\sin x}{1 + \cos x} \times \frac{\sin x}{\sin x}\;\;\;\;\;\;\;\;\;\;(x \neq 180)\\
+    &= \frac{\sin^2 x}{\sin x (1 + \cos x)}\;\;\;\;\;\;\;\;\;\;(x \neq 0, 180, 360)\\
+    &= \frac{1 - \cos^2 x}{\sin x (1 + \cos x)}\;\;\;\;\;\;\;\;\;\;(x \neq 0, 180, 360)\\
+    &= \frac{(1 - \cos x)(1 + \cos x)}{\sin x (1 + \cos x)}\;\;\;\;\;\;\;\;\;\;(x \neq 0, 180, 360)\\
+    &= \frac{1 - \cos x}{\sin x}\;\;\;\;\;\;\;\;\;\;(x \neq 0, 180, 360)\\
+    &= (1 - \cos x) \times \frac{1}{\sin x}\;\;\;\;\;\;\;\;\;\;(x \neq 0, 180, 360)\\
+    &= (1 - \cos x)(\csc x)\;\;\;\;\;\;\;\;\;\;(x \neq 0, 180, 360)
+\end{align}
+\textbf{(1)} Since this is a fraction, I need to make sure the denominator does not equal to zero. To apply a restriction/restrictions, I must determine the value of $x$ when $1 + \cos x = 0$.
+\begin{align*}
+    0 &= 1 + \cos x\\
+    x &= \cos^{-1} (-1)\\
+    x &= 180
+\end{align*} Therefore, x cannot be 180.\\
+\textbf{(2)} Multiplying by 1\\
+\textbf{(3)} Using the Pythagorean trigonometric identity, $\sin^2 \theta + \cos^2 \theta = 1$, I can replace $\sin^2 x$ with $1 - \cos^2 x$.\\
+\textbf{(3b)} Since the denominator now has a $\sin x$, I need to determine the value of x such that $\sin x = 0$ to apply a restriction(s).\\
+\textit{Using the unit circle, I know that sine 0 and sine 360 are both equal to zero, therefore, $x$ cannot be 0 or 360. In addition, sine 180 also equals to zero, but it is already stated in step 1.}\\
+\textbf{(4)} Using one of the seven special factoring formulas, $a^2 - b^2 = (a + b)(a - b)$, I can factor $1 - \cos^2 x$.\\
+\textbf{(5)} I can divide $1 + \cos x$ from the numerator and denominator out to equal 1.\\
+\textbf{(6)} Separate the fraction out for step 7.\\
+\textbf{(7)} I see that $\frac{1}{\sin x} = \csc x$ based on trigonometric identities.\\
+\textbf{(8)} End of proof.\\
+\textbf{Therefore, $(\csc x)(1-\cos x) = \dfrac{\sin x}{1+\cos x}$}.
+% Your solution starts here.
+
+
+\newpage
+
+
+%% PROBLEM 5
+\item Determine the amplitude, minimum value, maximum value and period of the function $f(x) = -3\sin(2(x+90^{\circ}))$.\\
+
+
+\textbf{Solution:}\\
+% Your solution starts here.
+\begin{align*}
+    f(x) &= -3\sin[2(x + 90^\circ)]\\
+    &= -3\sin(2x + 180^\circ)
+\end{align*}
+The coefficient of sin is -3. This means that the amplitude is equal to 3. Therefore, the maximum value is 3 and the minimum value is -3. To determine the period, I can use the formula learned in class $period = \dfrac{360}{k}$, where $k$ is the coefficient of x. In this function, $k = 2$.\\
+$period = \dfrac{360}{2} = 180.$\\
+\begin{itemize}
+    \item Amplitude = 3
+    \item Minimum Value = -3
+    \item Maximum value = 3
+    \item Period = 180
+\end{itemize}
+
+
+
+
+
+
+
+
+\newpage
+%% PROBLEM 6
+\item Given the table of values for the average monthly temperatures in Moscow, graph the data given below and model the temperature as a function of time algebraically with a sinusoidal function. (Hint: Let $t$ be the number of months since January and thus January corresponds to $t=0$.)
+
+
+\begin{table}[h]
+\begin{tabular}{||r|c|c|c|c|c|c|c|c|c|c|c|c||}
+\hline
+Time (month)        & J  & F  & M & A  & M  & J  & J  & A  & S  & O & N & D  \\
+\hline
+Temperature ($^{\circ}\textrm{C}$) & -9 & -6 & 0 & 10 & 19 & 21 & 23 & 22 & 16 & 9 & 1 & -4 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\textbf{Solution:}\\
+
+
+\includegraphics[scale=0.4]{Q6Graph.PNG}\\
+
+
+Determine each of the coefficients of $f(x) = a \cos(kx - d) + c$\\
+
+
+\textbf{Determining a:\\}
+Since this graph starts at the bottom left and increasing, a is negative. Estimating that the minimum value is -7 and the maximum value is 22, I can determine that the equation of the axis is $\dfrac{22 + (-7)}{2} = 7.5$. To determine a, take 22 - 7.5 = 14.5. Therefore a equals -14.5\\
+
+
+\textbf{Determining k:\\}
+Estimating from this graph, the period is 720.
+$period = \dfrac{360}{k}$\\
+$k = \dfrac{360}{800}$\\
+$k = \dfrac{360}{800}$\\
+$k = 0.45$\\
+
+
+\textbf{Determining d:\\}
+Looking at the graph, the function has a horizontal translation 0.5 to the left. Therefore d = 0.5.\\
+
+
+\textbf{Determining c:\\}
+Since the starting point is (0, -7) instead of (0, -14.5), I need to apply a vertical translation 7.5 up. Therefore c = 7.5.\\
+
+
+\newpage
+
+
+Now, I have determined that the function of this table is 
+$$f(x) = -14.5 \cos(0.45x + 0.5) + 7.5$$
+However, time cannot be negative, therefore a restriction of $(x < 0)$ must be imposed on the function.\\
+
+
+Therefore, $$f(x) = -14.5 \;\cos(0.45x + 0.5) + 7.5\;\;\;\;\;\;\;\;\;(x < 0)$$
+
+
+
+
+\end{enumerate}
+
+
+\end{document}
