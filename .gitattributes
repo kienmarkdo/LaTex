@@ -2,4 +2,4 @@
 *.tex linguist-detectable=false
 
 # Turns on linguist detection for one single .text file
-"AP Calculus BC/Assignment # 1/main.tex" linguist-language = .tex
+AP[[:space:]]Calculus[[:space:]]BC/Assignment[[:space:]]%23[[:space:]]1/main.tex linguist-language=tex
