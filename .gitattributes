@@ -3,7 +3,7 @@
 *.tex linguist-detectable=false
 
 # Turns on linguist detection for one single .tex file
-IGNOREn.tex -linguist-detectable
+IGNORE.tex -linguist-detectable
 # AP[[:space:]]Calculus[[:space:]]BC/Assignment[[:space:]]%23[[:space:]]1/main.tex linguist-detectable=true
 # AP[[:space:]]Calculus[[:space:]]BC/Assignment[[:space:]]%23[[:space:]]1/main.tex linguist-language=tex
 # Set a specific file to tex https://github.com/github/linguist/discussions/5273
