@@ -1,3 +1,5 @@
+# Auto detect text files and perform LF normalization
+* text=auto
 # * University/ITI1100[[:space:]]Digital[[:space:]]Systems[[:space:]]I/ITI1100[[:space:]]Assignment[[:space:]]1/main.tex=auto
 # Turns off linguist detection for all .tex files
 # *.tex linguist-detectable=false
